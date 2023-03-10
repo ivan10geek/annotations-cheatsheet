@@ -6,6 +6,7 @@ import com.javatechie.spring.config.MailProps;
 import com.javatechie.spring.entity.Student;
 import com.javatechie.spring.exception.StudentNotFoundException;
 import com.javatechie.spring.service.StudentService;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -52,6 +53,7 @@ public class StudentController {
     public ResponseEntity<Student> addStudent(@RequestBody Student student) {
         return ResponseEntity.ok(studentService.addStudent(student));
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Student>> getStudent(@PathVariable int id) throws StudentNotFoundException {
